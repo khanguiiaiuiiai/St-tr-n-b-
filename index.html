@@ -991,6 +991,10 @@ netTick=function(dt){
   }
 };
 
+
+/* ===== RENDER: đẩy map lên server mỗi lần vào/thoát để không mất khi server khởi động lại ===== */
+const _sg=startGame;startGame=function(rec){try{pushMap(rec)}catch(e){}_sg(rec)};
+const _q2=quitToMenu;quitToMenu=function(){const k=S&&S.name.toLowerCase();_q2();try{const r=k&&loadMaps()[k];if(r)pushMap(r)}catch(e){}};
 </script>
 </body>
 </html>
